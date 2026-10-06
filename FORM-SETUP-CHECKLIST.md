@@ -1,16 +1,26 @@
-# Modern Tech Store — Form Setup Checklist
+# Modern Tech Store — Final Form Checklist
 
-## Before going live
-- [ ] Create Google Sheet
-- [ ] Set `OWNER_EMAIL` in `google-apps-script/Code.gs`
-- [ ] Set `SHEET_ID`
-- [ ] Run `setup()`
-- [ ] Deploy Apps Script as Web app, access = Anyone
-- [ ] Paste Web app URL into `script.js`
-- [ ] Upload/commit all website files to GitHub
-- [ ] Publish GitHub Pages
-- [ ] Submit one test inquiry from your phone
-- [ ] Confirm the Sheet row appears
-- [ ] Confirm the owner email arrives
-- [ ] Confirm the customer confirmation email arrives
-- [ ] Replace every `CHECK THIS` contact detail before publishing
+## Website
+- [ ] Upload/replace `index.html`, `styles.css`, `script.js`, and `assets` in GitHub
+- [ ] Commit changes
+- [ ] GitHub Pages is set to `main` → `/ (root)`
+- [ ] Open the published site on a phone
+- [ ] Submit one real test inquiry
+
+## Google backend
+- [x] Google Sheet created
+- [x] Apps Script Web App deployed
+- [x] Website connected to the deployed Web App URL
+- [x] Owner email is already configured in the deployed script
+
+## Test
+- [ ] Confirm the inquiry appears in the Google Sheet
+- [ ] Confirm the owner notification email arrives
+- [ ] If either fails, check Apps Script → Executions for the error
+
+## Before public launch
+- [ ] Replace every `CHECK THIS` contact detail after confirming the real information
+- [ ] Do not add prices, hours, response times, warranty claims, or contact numbers until confirmed
+
+## Current limitation
+The current deployed Apps Script sends the owner an email notification and saves the inquiry to the Sheet. It does not yet send an automatic confirmation email to the customer.

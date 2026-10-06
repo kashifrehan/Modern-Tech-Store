@@ -123,6 +123,30 @@ footer{background:#06152F;color:#AFC0DA;padding:30px 0}
 .footer-links{display:flex;gap:20px;font-size:12px}
 .footer-links a:hover{color:#fff}
 footer p{font-size:11px;margin:0}
+
+/* Inquiry form */
+.inquiry-card{padding:30px}
+.form-intro{margin-bottom:22px}
+.form-eyebrow{margin:0 0 7px;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:.14em}
+.form-intro h3{font-family:"Space Grotesk",Inter,sans-serif;font-size:28px;line-height:1.1;margin:0 0 8px}
+.form-intro>p:last-child{color:var(--muted);font-size:13px;margin:0}
+.form-field{margin-bottom:15px}
+.form-field label{display:block;font-size:12px;font-weight:800;margin:0 0 7px}
+.form-field input,.form-field select,.form-field textarea{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:13px;padding:12px 13px;outline:none;transition:border-color .2s ease,box-shadow .2s ease}
+.form-field textarea{resize:vertical;min-height:105px}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:#8DB1FF;box-shadow:0 0 0 4px rgba(21,94,239,.08)}
+.form-field input.has-error,.form-field select.has-error,.form-field textarea.has-error{border-color:#D92D20}
+.field-error{display:block;color:#B42318;font-size:11px;min-height:0;margin-top:5px}
+.form-submit{width:100%;border:0;cursor:pointer;margin-top:4px}
+.submit-loading{display:none}
+.form-submit.is-loading .submit-label{display:none}
+.form-submit.is-loading .submit-loading{display:inline}
+.form-submit:disabled{opacity:.75;cursor:wait;transform:none}
+.form-status{font-size:12px;line-height:1.5;margin:13px 0 0;min-height:18px}
+.form-status.error{color:#B42318}
+.form-status.success{color:#067647}
+.form-privacy{font-size:10px;color:var(--muted);margin:10px 0 0}
+
 @media (max-width: 900px){
   .hero{padding:70px 0}
   .hero-grid,.services-grid,.contact-grid,.audience-wrap{grid-template-columns:1fr;gap:44px}
@@ -165,6 +189,7 @@ footer p{font-size:11px;margin:0}
   .audience-list span{padding:10px 13px}
   .contact-section{padding:70px 0}
   .contact-grid{gap:30px}
+  .inquiry-card{padding:22px}
   .contact-row{display:block}
   .contact-row strong{display:block;margin-top:4px}
   .footer-wrap{flex-direction:column;text-align:center}

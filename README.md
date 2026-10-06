@@ -54,32 +54,38 @@ The website now includes a native-looking 4-field inquiry form:
 
 The form is designed to match the existing Modern Tech Store website instead of embedding a Google Form inside the page.
 
-### Connect the form to Google Sheets + email
+### Google Sheets connection
 
-The included `google-apps-script/Code.gs` is the backend.
+The website is already connected to the Apps Script Web App URL that was deployed for Modern Tech Store.
 
-1. Create a Google Sheet, for example `Modern Tech Store — Inquiries`.
-2. Copy the Sheet ID from the Google Sheets URL.
-3. Open **Extensions → Apps Script**.
-4. Paste the contents of `google-apps-script/Code.gs`.
-5. Set:
-   - `OWNER_EMAIL` to the email where you want new inquiry alerts.
-   - `SHEET_ID` to your Google Sheet ID.
-   - Keep the sheet tab name as `Inquiries`, or change `SHEET_NAME`.
-6. Run `setup()` once and approve the Google permissions.
-7. Deploy → **New deployment** → type **Web app**.
-8. Execute as: **Me**.
-9. Who has access: **Anyone**.
-10. Copy the Web app URL.
-11. Open `script.js` and replace:
-   `PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE`
-   with the Web app URL.
-12. Upload the updated files to GitHub and publish GitHub Pages.
-13. Test the form from a phone.
+The current live flow is:
+
+Customer submits the website form → Google Apps Script → your Google Sheet → owner email notification.
+
+The website sends these fields to the deployed script:
+- `name`
+- `email`
+- `product`
+- `message`
+
+The form does not contain invented WhatsApp numbers, prices, opening hours, or response-time promises.
+
+### Final GitHub steps
+
+1. Upload/replace `index.html`, `styles.css`, `script.js`, and the `assets` folder in your GitHub repository.
+2. Commit the changes.
+3. Make sure GitHub Pages is still set to **main → / (root)**.
+4. Open the published site.
+5. Scroll to **Let’s Find the Right Tech**.
+6. Submit a real test inquiry.
+7. Confirm the new row appears in your Google Sheet.
+8. Confirm your owner email notification arrives.
 
 ### What happens after setup
 
-Customer submits the form → inquiry is added to Google Sheets → you receive an email alert → customer receives a confirmation email.
+Customer submits the form → inquiry is added to Google Sheets → you receive an email alert.
+
+Customer confirmation email is **not** enabled by the currently deployed Apps Script. Do not advertise that feature on the website unless you add it to the script.
 
 No product price or response-time promise is hard-coded. Add the real WhatsApp number and any confirmed response time only after checking them.
 

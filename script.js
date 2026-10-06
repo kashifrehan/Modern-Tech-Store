@@ -22,7 +22,7 @@ if (menuToggle && nav) {
   1) Deploy the Google Apps Script in /google-apps-script/Code.gs as a Web App.
   2) Paste the Web App URL below.
 */
-const FORM_ENDPOINT = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbyYBDCab22h0JHOMnMYq4TuU3o1-FNvh9GFYFYoJ8oEXy2wloEPLqydpuh7IPDQsOCI/exec";
 
 const inquiryForm = document.querySelector("#inquiry-form");
 
@@ -98,9 +98,8 @@ if (inquiryForm) {
     const payload = {
       name: name.value.trim(),
       email: email.value.trim(),
-      interest: interest.value,
-      details: details.value.trim(),
-      source: window.location.href
+      product: interest.value,
+      message: details.value.trim()
     };
 
     try {

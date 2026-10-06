@@ -192,12 +192,55 @@
           <a class="btn btn-white" href="https://www.instagram.com/the_modern_tech_store/" target="_blank" rel="noopener noreferrer">Visit our Instagram <span>↗</span></a>
         </div>
 
-        <div class="contact-card">
-          <div class="contact-row"><span class="contact-label">Location</span><strong>Rawalpindi, Pakistan</strong></div>
-          <div class="contact-row"><span class="contact-label">Instagram</span><strong>@the_modern_tech_store</strong></div>
-          <div class="contact-row"><span class="contact-label">WhatsApp / Phone</span><strong class="check">CHECK THIS</strong></div>
-          <div class="contact-row"><span class="contact-label">Opening Hours</span><strong class="check">CHECK THIS</strong></div>
-          <p class="contact-note">Exact contact details and opening hours will be added once confirmed.</p>
+        <div class="contact-card inquiry-card">
+          <div class="form-intro">
+            <p class="form-eyebrow">QUICK INQUIRY</p>
+            <h3>Get help choosing the right tech.</h3>
+            <p>Tell us what you need and your budget. We’ll help you compare your options.</p>
+          </div>
+
+          <form id="inquiry-form" novalidate>
+            <div class="form-field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+              <small class="field-error" data-error-for="name"></small>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <small class="field-error" data-error-for="email"></small>
+            </div>
+
+            <div class="form-field">
+              <label for="interest">What are you looking for?</label>
+              <select id="interest" name="interest" required>
+                <option value="">Choose an option</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Mobile Phone">Mobile Phone</option>
+                <option value="Gaming PC">Gaming PC</option>
+                <option value="Computer">Computer</option>
+                <option value="Gadgets / Accessories">Gadgets / Accessories</option>
+                <option value="PC Building / Upgrade">PC Building / Upgrade</option>
+                <option value="Not sure — help me choose">Not sure — help me choose</option>
+              </select>
+              <small class="field-error" data-error-for="interest"></small>
+            </div>
+
+            <div class="form-field">
+              <label for="details">What do you need it for + your budget?</label>
+              <textarea id="details" name="details" rows="4" placeholder="Example: University work + some editing, budget around Rs. 120,000." required></textarea>
+              <small class="field-error" data-error-for="details"></small>
+            </div>
+
+            <button class="btn btn-primary form-submit" type="submit">
+              <span class="submit-label">GET MY RECOMMENDATION</span>
+              <span class="submit-loading" aria-hidden="true">SENDING…</span>
+            </button>
+
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+            <p class="form-privacy">Your details are used only to respond to your inquiry.</p>
+          </form>
         </div>
       </div>
     </section>
