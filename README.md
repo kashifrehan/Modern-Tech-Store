@@ -1,20 +1,44 @@
-# Modern Tech Store Website
+# Modern Tech Store — Final GitHub Website
 
-A responsive static website for Modern Tech Store, designed for GitHub Pages.
+This is the polished responsive website for Modern Tech Store.
 
-## Publish on GitHub Pages
+## Files
 
-1. Create a new GitHub repository (for example `modern-tech-store`).
-2. Upload **all files and folders inside this project** so that `index.html` is in the repository root.
-3. Open the repository's **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)`, then save.
-6. GitHub will provide the public Pages URL after deployment.
+- `index.html` — website structure/content
+- `styles.css` — responsive design and brand styling
+- `script.js` — mobile navigation
+- `assets/modern-tech-store-logo.png` — supplied/cleaned logo
+- `assets/pc-build-showcase.png` — existing Modern Tech Store PC showcase image
 
-## Before publishing
+## GitHub Pages
 
-Replace every `CHECK THIS` item in `index.html` with the confirmed business details:
-- WhatsApp / phone number
-- Opening hours
+1. Open the repository on GitHub.
+2. Upload/replace the files and the `assets` folder.
+3. Commit the changes.
+4. Go to **Settings → Pages**.
+5. Source: **Deploy from a branch**
+6. Branch: **main**
+7. Folder: **/ (root)**
+8. Save.
 
-The site intentionally does not include invented prices, awards, customer quotes, exact shop address, or other unverified claims.
+## Verified / intentionally left as CHECK THIS
+
+We do not invent business contact information.
+
+- Location: Rawalpindi, Pakistan
+- Instagram: `@the_modern_tech_store`
+- WhatsApp / Phone: CHECK THIS
+- Opening Hours: CHECK THIS
+
+The website links the Instagram buttons to:
+https://www.instagram.com/the_modern_tech_store/
+
+## Brand
+
+- Primary: #155EEF
+- Light background: #F5F8FF
+- Accent: #12B76A
+- Headline direction: Space Grotesk
+- Body direction: Inter
+
+The site is designed for desktop and mobile screens.
