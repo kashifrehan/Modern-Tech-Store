@@ -1,21 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
-<title id="title">Modern Tech Store</title>
-<desc id="desc">Modern Tech Store logo with a blue monitor mark and green accent.</desc>
-<defs>
-  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#155EEF"/><stop offset="1" stop-color="#1048C8"/></linearGradient>
-</defs>
-<g transform="translate(20 20)">
-  <rect x="0" y="0" width="200" height="200" rx="34" fill="#F4F7FF" stroke="#D9E5FC" stroke-width="3"/>
-  <rect x="27" y="30" width="146" height="108" rx="13" fill="url(#blue)"/>
-  <path d="M43 116V54h17l29 35 29-35h17v62h-18V82l-28 32-28-32v34z" fill="#FFFFFF"/>
-  <path d="M77 154h46M100 138v16" fill="none" stroke="#155EEF" stroke-width="9" stroke-linecap="round"/>
-  <rect x="137" y="145" width="32" height="32" rx="9" fill="#12B76A" stroke="#FFFFFF" stroke-width="5"/>
-  <path d="M146 161l6 6 10-12" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+<title id="title">Modern Tech Store</title><desc id="desc">Angular geometric M mark in electric blue and white, with TECH in white and STORE in blue.</desc>
+<defs><linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3477FF"/><stop offset="1" stop-color="#0754EE"/></linearGradient></defs>
+<g transform="translate(0 8)">
+<path d="M320 252 L640 0 L640 94 L405 278 Z" fill="url(#blue)"/>
+<path d="M520 290 L640 196 L640 456 L520 382 Z" fill="url(#blue)"/>
+<path d="M320 170 L470 270 L470 382 L320 486 Z" fill="#FFFFFF"/>
+<path d="M320 170 L520 302 L520 382 L374 285 L374 418 L320 456 Z" fill="#FFFFFF"/>
 </g>
-<g font-family="Arial, Helvetica, sans-serif" font-weight="800">
-  <text x="260" y="105" font-size="66" letter-spacing="2.5" fill="#12233F">MODERN</text>
-  <text x="260" y="173" font-size="52" letter-spacing="5" fill="#155EEF">TECH STORE</text>
-  <rect x="262" y="191" width="390" height="5" rx="2.5" fill="#12B76A"/>
-  <text x="672" y="199" font-size="18" letter-spacing="1.4" fill="#4B5A70">RIGHT TECH. RIGHT VALUE.</text>
-</g>
+<text x="104" y="590" font-family="Arial, Helvetica, sans-serif" font-size="90" font-weight="800" letter-spacing="8" fill="#FFFFFF">TECH</text>
+<text x="485" y="590" font-family="Arial, Helvetica, sans-serif" font-size="90" font-weight="800" letter-spacing="8" fill="#1765FF">STORE</text>
 </svg>
