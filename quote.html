@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F5F8FF">
 <title>Sample Quotation | Modern Tech Store</title>
-<link rel="icon" href="assets/modern-tech-store-logo.svg" type="image/svg+xml">
+<link rel="icon" href="assets/modern-tech-store-logo-clean.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 </head>
 <body>
 <header class="site-header"><div class="container nav-wrap">
-<a class="brand" href="./index.html#top" aria-label="Modern Tech Store home"><img src="assets/modern-tech-store-logo.svg" alt="Modern Tech Store"></a>
+<a class="brand" href="./index.html#top" aria-label="Modern Tech Store home"><img src="assets/modern-tech-store-logo-clean.png" alt="Modern Tech Store"></a>
 <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
 <nav class="nav" aria-label="Main navigation"><a href="./index.html#products">Products</a><a href="./index.html#services">Services</a><a href="./index.html#why-us">How We Help</a><a href="./index.html#contact" class="nav-cta">Contact</a></nav>
 </div></header>
@@ -39,7 +39,7 @@
 <iframe name="submit-frame" title="Form submission" style="display:none"></iframe>
 <p class="muted" style="font-size:.82rem;margin-top:18px">Submitting sends a sample request to the automation endpoint. No payment is processed and stock is not reserved.</p>
 </section></div></main>
-<footer><div class="container footer-wrap"><a class="footer-brand" href="./index.html#top"><img src="assets/modern-tech-store-logo.svg" alt="Modern Tech Store"></a><nav class="footer-links" aria-label="Footer navigation"><a href="./index.html#products">Products</a><a href="./index.html#services">Services</a><a href="./index.html#contact">Contact</a></nav><p>© Modern Tech Store · Rawalpindi</p></div></footer>
+<footer><div class="container footer-wrap"><a class="footer-brand" href="./index.html#top"><img src="assets/modern-tech-store-logo-clean.png" alt="Modern Tech Store"></a><nav class="footer-links" aria-label="Footer navigation"><a href="./index.html#products">Products</a><a href="./index.html#services">Services</a><a href="./index.html#contact">Contact</a></nav><p>© Modern Tech Store · Rawalpindi</p></div></footer>
 <script src="script.js"></script>
 <script>(()=>{const f=document.querySelector('#quote-form'),p=document.querySelector('#product_id'),q=document.querySelector('#quantity'),c=document.querySelector('#delivery_city');const money=n=>'PKR '+Number(n).toLocaleString('en-PK');function update(){const o=p.options[p.selectedIndex],price=+o.dataset.price,qty=Math.max(1,Math.min(10,+q.value||1)),fee=c.value==='Rawalpindi'?300:c.value==='Islamabad'?350:500,sub=price*qty,total=sub+fee;q.value=qty;document.querySelector('#unit-view').textContent=money(price);document.querySelector('#subtotal-view').textContent=money(sub);document.querySelector('#delivery-view').textContent=money(fee);document.querySelector('#total-view').textContent=money(total);document.querySelector('#product_name').value=o.dataset.name;document.querySelector('#unit_price').value=price;document.querySelector('#delivery_fee').value=fee;document.querySelector('#subtotal').value=sub;document.querySelector('#total').value=total;}[p,q,c].forEach(e=>e.addEventListener('change',update));q.addEventListener('input',update);f.addEventListener('submit',()=>{update();document.querySelector('#request_id').value='DEMO-'+Date.now();document.querySelector('#status').textContent='Request submitted. If the automation completes successfully, a confirmation email should arrive shortly. Check your spam folder if needed. Demo prices only; this is not a confirmed order.'});update()})();</script>
 </body></html>
