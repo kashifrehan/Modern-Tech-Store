@@ -117,7 +117,7 @@ if (inquiryForm) {
     } finally {
       submitButton.disabled = false;
       submitButton.classList.remove("is-loading");
-      submitLabel.textContent = "GET MY RECOMMENDATION";
+      submitLabel.textContent = "Send inquiry";
       submitLoading.setAttribute("aria-hidden", "true");
     }
   });
