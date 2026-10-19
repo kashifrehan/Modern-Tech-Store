@@ -122,3 +122,58 @@ if (inquiryForm) {
     }
   });
 }
+
+
+// Subtle on-scroll reveals and the interactive setup finder.
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealItems = document.querySelectorAll(".hero-copy, .hero-visual, .trust-grid > div, .section-heading, .product-card, .services-intro, .service-item, .approach-steps li, .contact-copy, .contact-card, .finder-copy, .finder-result");
+  revealItems.forEach(item => item.classList.add("js-reveal"));
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealItems.forEach(item => item.classList.add("is-visible"));
+  } else {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -25px 0px" });
+    revealItems.forEach(item => observer.observe(item));
+  }
+
+  const profiles = {
+    study: {
+      title: "A reliable everyday laptop",
+      description: "Prioritise a comfortable keyboard, good battery life, an SSD and enough memory for your usual apps. You may not need a dedicated graphics card."
+    },
+    work: {
+      title: "A setup built around your workload",
+      description: "For multitasking, design or editing, focus on memory, processor performance, screen quality and storage. The right balance depends on the apps you use."
+    },
+    gaming: {
+      title: "A balanced gaming setup",
+      description: "Start with the games and resolution you want to play. Match the graphics card with the processor, monitor and power supply instead of spending on one part alone."
+    }
+  };
+  const buttons = document.querySelectorAll(".finder-option");
+  const title = document.querySelector("#finder-title");
+  const description = document.querySelector("#finder-description");
+  buttons.forEach(button => button.addEventListener("click", () => {
+    const profile = profiles[button.dataset.profile];
+    if (!profile || !title || !description) return;
+    buttons.forEach(item => {
+      const selected = item === button;
+      item.classList.toggle("is-selected", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+    title.textContent = profile.title;
+    description.textContent = profile.description;
+    const result = document.querySelector(".finder-result");
+    if (result) {
+      result.classList.remove("is-visible");
+      requestAnimationFrame(() => result.classList.add("is-visible"));
+    }
+  }));
+})();
