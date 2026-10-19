@@ -305,3 +305,22 @@ footer{background:#081426}
  .brand img,.product-card,.card-link b,.btn{transition:none}
  .product-card:hover,.btn-primary:hover{transform:none}
 }
+
+
+/* Accessibility contrast pass */
+:root{--muted:#4B5A70;--ink:#172337}
+.eyebrow{color:#53647B}
+.hero-lead{color:#40516A}
+.hero-footnote{color:#4B5A70}
+.image-caption{color:#43536A;background:#FFFFFF;border-color:#D2DDED}
+.trust-grid small,.product-card p,.section-heading>p:last-child,.services-intro>p:not(.eyebrow),
+.service-item p,.approach-steps p,.finder-copy>p:not(.eyebrow),.finder-result>p:not(.finder-note){color:#4B5A70}
+.finder-note{color:#53647B}
+.result-kicker{color:#53647B}
+.form-privacy{color:#53647B}
+.footer-wrap>p{color:#C3CDDB}
+.footer-links{color:#D5DEEA}
+.footer-links a:hover{color:#FFFFFF}
+.contact-small{color:#C3CDDB!important}
+.quote-page .muted{color:#4B5A70}
+.warning{color:#6E4000;background:#FFF7E8;border-color:#E9C98F}
