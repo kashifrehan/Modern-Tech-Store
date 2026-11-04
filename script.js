@@ -95,11 +95,17 @@ if (inquiryForm) {
     submitLabel.textContent = "SENDING";
     submitLoading.setAttribute("aria-hidden", "false");
 
+    // Send both the current frontend keys and the Apps Script backend keys.
+    // This keeps compatibility with either deployed version while the backend
+    // and frontend are brought into alignment.
     const payload = {
       name: name.value.trim(),
       email: email.value.trim(),
       product: interest.value,
-      message: details.value.trim()
+      message: details.value.trim(),
+      interest: interest.value,
+      details: details.value.trim(),
+      source: "website"
     };
 
     try {
