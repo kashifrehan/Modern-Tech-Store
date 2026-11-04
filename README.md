@@ -92,3 +92,20 @@ No product price or response-time promise is hard-coded. Add the real WhatsApp n
 ### Important
 
 The form will not send anywhere until the Apps Script Web app URL is added to `script.js`. This is intentional so the site never sends customer data to an unknown endpoint.
+
+
+## Recent customer-experience improvements
+
+- Added an FAQ section covering availability, budget-led advice, condition, warranty, sample pricing and services.
+- Added keyboard skip navigation, visible focus styles and Escape-to-close mobile navigation.
+- Product-category cards now preselect the matching inquiry category.
+- Inquiry and quotation status messages no longer claim that a backend workflow succeeded when the browser cannot verify it.
+- Existing Apps Script and Make endpoint URLs, form field contracts, sample price values and quote calculations are intentionally preserved.
+
+## Automation safety notes
+
+The inquiry form uses the existing Google Apps Script Web App endpoint. Because the browser uses `no-cors`, it cannot read the Apps Script JSON response; the website therefore reports that the request was sent by the browser, not that the sheet/email operation was verified.
+
+The sample quotation form keeps its existing Make webhook, field names, hidden calculation fields, sample products and iframe submission method. The page can detect the iframe hand-off but cannot verify that Make completed downstream modules or delivered an email.
+
+Before production, replace all sample prices and delivery fees with verified values, and verify the deployed Apps Script configuration and Make scenario independently.

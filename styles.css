@@ -524,3 +524,41 @@ footer{background:#050D19;border-top:1px solid rgba(176,197,228,.12)}
 .preorder-card p{margin:0;color:#AAB9CE;font-size:14px}
 .preorder-note{margin:20px 0 0;color:#93A5C0;font-size:12px;max-width:850px}
 @media(max-width:700px){.preorder-grid{grid-template-columns:1fr}.preorder-card{padding:21px}}
+
+
+/* Site-wide usability and customer-journey refinements */
+.skip-link{position:fixed;z-index:1000;top:12px;left:12px;transform:translateY(-160%);padding:11px 16px;border-radius:8px;background:#fff;color:#10213A;font-weight:700;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #80A5FF!important;outline-offset:3px!important}
+.nav a{white-space:nowrap}
+.faq-section{background:#0D1B30}
+.faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,84px);align-items:start}
+.faq-grid .section-heading{margin:0}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line);padding:0}
+.faq-item summary{position:relative;list-style:none;cursor:pointer;padding:21px 42px 21px 0;color:#F1F5FC;font-size:15px;font-weight:650}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"+";position:absolute;right:5px;top:17px;color:#8FB0FF;font-size:24px;font-weight:400}
+.faq-item[open] summary:after{content:"−"}
+.faq-item p{max-width:650px;margin:0;padding:0 36px 21px 0;color:#AAB9CE;font-size:13px;line-height:1.8}
+.form-status.notice{color:#805600;background:#FFF7E8;border:1px solid #E9C98F;border-radius:8px;padding:10px 12px}
+.form-status{min-height:0}
+.quote-status{display:block;margin-top:10px;color:#DCE5F4}
+.quote-submit:disabled{opacity:.65;cursor:wait}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr;gap:26px}}
+@media(max-width:700px){
+  .faq-section{padding:66px 0}
+  .faq-item summary{font-size:14px;padding:18px 38px 18px 0}
+  .faq-item p{padding-right:12px}
+  .nav{max-height:calc(100vh - 90px);overflow:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .skip-link{transition:none}
+}
+
+
+/* Keep the published visual treatment aligned with the official Tech Blue identity. */
+:root{--blue:#155EEF;--blue-hover:#104CC6;--green:#12B76A}
+.btn-primary{background:linear-gradient(135deg,#155EEF,#104CC6);border-color:#155EEF;box-shadow:0 9px 28px rgba(21,94,239,.24)}
+.btn-primary:hover{background:linear-gradient(135deg,#2B70F4,#155EEF);border-color:#2B70F4}
+.nav-cta{border-color:rgba(21,94,239,.8);background:rgba(21,94,239,.14)}

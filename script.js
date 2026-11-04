@@ -8,6 +8,15 @@ if (menuToggle && nav) {
     menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
   });
 
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && nav.classList.contains("open")) {
+      nav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+      menuToggle.focus();
+    }
+  });
+
   nav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       nav.classList.remove("open");
@@ -116,8 +125,19 @@ if (inquiryForm) {
         body: JSON.stringify(payload)
       });
 
-      inquiryForm.reset();
-      setStatus("Thanks! We received your request. We’ll get back to you during working hours.", "success");
+      if (response.type === "opaque") {
+        setStatus("Your browser sent the request, but this form cannot confirm whether it was saved. Keep these details until you hear back. If needed, message us on Instagram.", "notice");
+      } else if (response.ok) {
+        const result = await response.json();
+        if (result && result.ok) {
+          inquiryForm.reset();
+          setStatus("Thanks — your inquiry has been received.", "success");
+        } else {
+          setStatus("The request could not be confirmed. Please try again or message us on Instagram.", "error");
+        }
+      } else {
+        setStatus("The request could not be confirmed. Please try again or message us on Instagram.", "error");
+      }
     } catch (error) {
       setStatus("Something went wrong. Please try again or contact us on Instagram.", "error");
     } finally {
@@ -133,7 +153,7 @@ if (inquiryForm) {
 // Subtle on-scroll reveals and the interactive setup finder.
 (() => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const revealItems = document.querySelectorAll(".hero-copy, .hero-visual, .trust-grid > div, .section-heading, .product-card, .services-intro, .service-item, .approach-steps li, .contact-copy, .contact-card, .finder-copy, .finder-result");
+  const revealItems = document.querySelectorAll(".hero-copy, .hero-visual, .trust-grid > div, .section-heading, .product-card, .services-intro, .service-item, .approach-steps li, .contact-copy, .contact-card, .finder-copy, .finder-result, .faq-item");
   revealItems.forEach(item => item.classList.add("js-reveal"));
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealItems.forEach(item => item.classList.add("is-visible"));
@@ -183,3 +203,12 @@ if (inquiryForm) {
     }
   }));
 })();
+
+
+// Product-card shortcuts: preselect the matching inquiry category.
+document.querySelectorAll("[data-inquiry]").forEach(card => {
+  card.addEventListener("click", () => {
+    const interest = document.querySelector("#interest");
+    if (interest) interest.value = card.dataset.inquiry;
+  });
+});
