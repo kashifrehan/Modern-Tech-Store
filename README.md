@@ -1,111 +1,67 @@
-# Modern Tech Store — Final GitHub Website
+# Modern Tech Store
 
-This is the polished responsive website for Modern Tech Store.
+Responsive website for Modern Tech Store, a value-focused consumer technology store planned for Rawalpindi, Pakistan.
 
-## Files
+## Website files
 
-- `index.html` — website structure/content
-- `styles.css` — responsive design and brand styling
-- `script.js` — mobile navigation
-- `assets/modern-tech-store-logo.png` — supplied/cleaned logo
-- `assets/pc-build-showcase.png` — existing Modern Tech Store PC showcase image
-
-## GitHub Pages
-
-1. Open the repository on GitHub.
-2. Upload/replace the files and the `assets` folder.
-3. Commit the changes.
-4. Go to **Settings → Pages**.
-5. Source: **Deploy from a branch**
-6. Branch: **main**
-7. Folder: **/ (root)**
-8. Save.
-
-## Verified / intentionally left as CHECK THIS
-
-We do not invent business contact information.
-
-- Location: Rawalpindi, Pakistan
-- Instagram: `@the_modern_tech_store`
-- WhatsApp / Phone: CHECK THIS
-- Opening Hours: CHECK THIS
-
-The website links the Instagram buttons to:
-https://www.instagram.com/the_modern_tech_store/
+- `index.html` — homepage, product/service information, inquiry form and FAQs
+- `quote.html` — sample quotation calculator
+- `styles.css` — visual design and responsive layout
+- `script.js` — mobile navigation, inquiry form and setup finder
+- `assets/` — supplied brand logo and website imagery
+- `google-apps-script/Code.gs` — source for the inquiry-form Apps Script backend
+- `AUTOMATION-CONTRACTS.md` — integration field names and automation safety notes
 
 ## Brand
 
-- Primary: #155EEF
-- Light background: #F5F8FF
-- Accent: #12B76A
-- Headline direction: Space Grotesk
-- Body direction: Inter
+- Primary blue: `#155EEF`
+- Light background: `#F5F8FF`
+- Accent green: `#12B76A`
+- Headlines: Space Grotesk
+- Body: Inter
 
-The site is designed for desktop and mobile screens.
+## Customer inquiry automation
 
+The homepage inquiry form sends a JSON payload to the existing Google Apps Script Web App URL configured as `FORM_ENDPOINT` in `script.js`.
 
-## Customer inquiry form
-
-The website now includes a native-looking 4-field inquiry form:
-1. Name
-2. Email
-3. What are you looking for?
-4. What do you need it for + your budget?
-
-The form is designed to match the existing Modern Tech Store website instead of embedding a Google Form inside the page.
-
-### Google Sheets connection
-
-The website is already connected to the Apps Script Web App URL that was deployed for Modern Tech Store.
-
-The current live flow is:
-
-Customer submits the website form → Google Apps Script → your Google Sheet → owner email notification.
-
-The website sends these fields to the deployed script:
+Backend fields:
 - `name`
 - `email`
-- `product`
-- `message`
+- `interest`
+- `details`
+- `source`
 
-The form does not contain invented WhatsApp numbers, prices, opening hours, or response-time promises.
+Legacy compatibility aliases are also sent:
+- `product` (same value as `interest`)
+- `message` (same value as `details`)
 
-### Final GitHub steps
+The Apps Script source in `google-apps-script/Code.gs` is designed to append a row to the `Inquiries` sheet and send owner and customer emails. The source file currently contains placeholder values for `OWNER_EMAIL` and `SHEET_ID`; do not deploy it as-is. The already deployed Web App is separate from this repository source and must be checked independently.
 
-1. Upload/replace `index.html`, `styles.css`, `script.js`, and the `assets` folder in your GitHub repository.
-2. Commit the changes.
-3. Make sure GitHub Pages is still set to **main → / (root)**.
-4. Open the published site.
-5. Scroll to **Let’s Find the Right Tech**.
-6. Submit a real test inquiry.
-7. Confirm the new row appears in your Google Sheet.
-8. Confirm your owner email notification arrives.
+The browser uses `no-cors`, so the page cannot read the Apps Script JSON response. The UI deliberately does not claim that the sheet write or emails were confirmed. Verify the Sheet row and email delivery during an end-to-end test.
 
-### What happens after setup
+## Sample quotation automation
 
-Customer submits the form → inquiry is added to Google Sheets → you receive an email alert.
+The quotation page posts to the existing Make webhook using a hidden iframe. The field names, product IDs, demo prices, sample delivery fees, hidden calculation fields and arithmetic are documented in `AUTOMATION-CONTRACTS.md`.
 
-Customer confirmation email is **not** enabled by the currently deployed Apps Script. Do not advertise that feature on the website unless you add it to the script.
+All current quotation prices and delivery fees are illustrative examples only. They are not live store prices, availability or confirmed offers. Replace them with verified business data before using the calculator for real customer quotations.
 
-No product price or response-time promise is hard-coded. Add the real WhatsApp number and any confirmed response time only after checking them.
+The iframe can confirm a browser-side form hand-off but cannot confirm that the Make scenario completed or that an email was delivered.
 
-### Important
+## Deployment
 
-The form will not send anywhere until the Apps Script Web app URL is added to `script.js`. This is intentional so the site never sends customer data to an unknown endpoint.
+The site is intended for GitHub Pages from the `main` branch and repository root (`/ `). After merging website changes, check the Pages deployment workflow and open the published site on desktop and mobile.
 
+## Pre-launch checks
 
-## Recent customer-experience improvements
+- Verify the live Apps Script deployment, spreadsheet ID, sheet tab, owner email and customer email behaviour.
+- Verify the Make webhook, scenario mappings, quote log and email delivery.
+- Replace all sample prices and delivery examples with verified values before production use.
+- Confirm product condition, warranty, availability, delivery and contact details before publishing specific claims.
+- Submit test inquiries and quotations using test customer details, then verify each backend step separately.
 
-- Added an FAQ section covering availability, budget-led advice, condition, warranty, sample pricing and services.
-- Added keyboard skip navigation, visible focus styles and Escape-to-close mobile navigation.
-- Product-category cards now preselect the matching inquiry category.
-- Inquiry and quotation status messages no longer claim that a backend workflow succeeded when the browser cannot verify it.
-- Existing Apps Script and Make endpoint URLs, form field contracts, sample price values and quote calculations are intentionally preserved.
+## Contact details
 
-## Automation safety notes
-
-The inquiry form uses the existing Google Apps Script Web App endpoint. Because the browser uses `no-cors`, it cannot read the Apps Script JSON response; the website therefore reports that the request was sent by the browser, not that the sheet/email operation was verified.
-
-The sample quotation form keeps its existing Make webhook, field names, hidden calculation fields, sample products and iframe submission method. The page can detect the iframe hand-off but cannot verify that Make completed downstream modules or delivered an email.
-
-Before production, replace all sample prices and delivery fees with verified values, and verify the deployed Apps Script configuration and Make scenario independently.
+- Location: Rawalpindi, Pakistan
+- Instagram: [@the_modern_tech_store](https://www.instagram.com/the_modern_tech_store/)
+- WhatsApp / phone: CHECK THIS
+- Opening hours: CHECK THIS
