@@ -8,7 +8,7 @@ if (menuToggle && nav) {
     menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
   });
 
-  nav.querySelectorAll("a").forEach(link => {
+  document.addEventListener("keydown", event => {\n    if (event.key === "Escape" && nav.classList.contains("open")) {\n      nav.classList.remove("open");\n      menuToggle.setAttribute("aria-expanded", "false");\n      menuToggle.setAttribute("aria-label", "Open navigation");\n      menuToggle.focus();\n    }\n  });\n\n  nav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       nav.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
@@ -133,7 +133,7 @@ if (inquiryForm) {
 // Subtle on-scroll reveals and the interactive setup finder.
 (() => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const revealItems = document.querySelectorAll(".hero-copy, .hero-visual, .trust-grid > div, .section-heading, .product-card, .services-intro, .service-item, .approach-steps li, .contact-copy, .contact-card, .finder-copy, .finder-result");
+  const revealItems = document.querySelectorAll(".hero-copy, .hero-visual, .trust-grid > div, .section-heading, .product-card, .services-intro, .service-item, .approach-steps li, .contact-copy, .contact-card, .finder-copy, .finder-result, .faq-item");
   revealItems.forEach(item => item.classList.add("js-reveal"));
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealItems.forEach(item => item.classList.add("is-visible"));
@@ -183,3 +183,12 @@ if (inquiryForm) {
     }
   }));
 })();
+
+
+// Product-card shortcuts: preselect the matching inquiry category.
+document.querySelectorAll("[data-inquiry]").forEach(card => {
+  card.addEventListener("click", () => {
+    const interest = document.querySelector("#interest");
+    if (interest) interest.value = card.dataset.inquiry;
+  });
+});
