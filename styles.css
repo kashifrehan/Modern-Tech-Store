@@ -555,3 +555,10 @@ footer{background:#050D19;border-top:1px solid rgba(176,197,228,.12)}
 @media(prefers-reduced-motion:reduce){
   .skip-link{transition:none}
 }
+
+
+/* Keep the published visual treatment aligned with the official Tech Blue identity. */
+:root{--blue:#155EEF;--blue-hover:#104CC6;--green:#12B76A}
+.btn-primary{background:linear-gradient(135deg,#155EEF,#104CC6);border-color:#155EEF;box-shadow:0 9px 28px rgba(21,94,239,.24)}
+.btn-primary:hover{background:linear-gradient(135deg,#2B70F4,#155EEF);border-color:#2B70F4}
+.nav-cta{border-color:rgba(21,94,239,.8);background:rgba(21,94,239,.14)}
