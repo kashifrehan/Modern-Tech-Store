@@ -8,7 +8,16 @@ if (menuToggle && nav) {
     menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
   });
 
-  document.addEventListener("keydown", event => {\n    if (event.key === "Escape" && nav.classList.contains("open")) {\n      nav.classList.remove("open");\n      menuToggle.setAttribute("aria-expanded", "false");\n      menuToggle.setAttribute("aria-label", "Open navigation");\n      menuToggle.focus();\n    }\n  });\n\n  nav.querySelectorAll("a").forEach(link => {
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && nav.classList.contains("open")) {
+      nav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+      menuToggle.focus();
+    }
+  });
+
+  nav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       nav.classList.remove("open");
       menuToggle.setAttribute("aria-expanded", "false");
@@ -116,8 +125,19 @@ if (inquiryForm) {
         body: JSON.stringify(payload)
       });
 
-      inquiryForm.reset();
-      setStatus("Thanks! We received your request. We’ll get back to you during working hours.", "success");
+      if (response.type === "opaque") {
+        setStatus("Your browser sent the request, but this form cannot confirm whether it was saved. Keep these details until you hear back. If needed, message us on Instagram.", "notice");
+      } else if (response.ok) {
+        const result = await response.json();
+        if (result && result.ok) {
+          inquiryForm.reset();
+          setStatus("Thanks — your inquiry has been received.", "success");
+        } else {
+          setStatus("The request could not be confirmed. Please try again or message us on Instagram.", "error");
+        }
+      } else {
+        setStatus("The request could not be confirmed. Please try again or message us on Instagram.", "error");
+      }
     } catch (error) {
       setStatus("Something went wrong. Please try again or contact us on Instagram.", "error");
     } finally {
